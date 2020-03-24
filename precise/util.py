@@ -79,7 +79,7 @@ def play_audio(filename: str):
 
 
 def activate_notify():
-    audio = 'data/activate.wav'
+    audio = 'precise/data/activate.wav'
     audio = abspath(dirname(abspath(__file__)) + '/../' + audio)
 
     play_audio(audio)
