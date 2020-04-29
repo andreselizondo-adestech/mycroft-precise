@@ -70,6 +70,7 @@ setup(
     install_requires=[
         'numpy',
         'tensorflow-gpu==2.2.0rc', # This should be changed for 2.2.0 when it's released.
+        "tflite_runtime @ http://dl.google.com/coral/python/tflite_runtime-2.1.0.post1-cp36-cp36m-linux_x86_64.whl",
         'sonopy',
         'pyaudio',
         'keras>2.1.5',

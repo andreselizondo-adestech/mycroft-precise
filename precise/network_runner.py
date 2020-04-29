@@ -85,9 +85,10 @@ class KerasRunner(Runner):
 
 class TFLiteRunner(Runner):
     def __init__(self, model_name: str):
-        import tensorflow as tf
+        import tflite_runtime.interpreter as tflite
+
         #  Setup tflite environment
-        self.interpreter = tf.lite.Interpreter(model_path=model_name)
+        self.interpreter = tflite.Interpreter(model_path=model_name)
         self.interpreter.allocate_tensors()
         
         self.input_details = self.interpreter.get_input_details()
