@@ -10,7 +10,7 @@ script_name = '%%SCRIPT%%'
 train_libs = %%TRAIN_LIBS%%
 strip = True
 site_packages = '.venv/lib/python3.6/site-packages/'
-hidden_imports = ['prettyparse', 'speechpy']
+hidden_imports = ['prettyparse', 'speechpy'. 'pkg_resources.py2_warn']
 binaries = []
 
 
@@ -47,6 +47,8 @@ for i in range(len(a.binaries)):
     dest, origin, kind = a.binaries[i]
     if '_pywrap_tensorflow_internal' in dest:
         a.binaries[i] = ('tensorflow.python.' + dest, origin, kind)
+    if '_interpreter_wrapper' in dest:
+        a.binaries[i] = ('tflite_runtime.' + dest, origin, kind)
 
 pyz = PYZ(
     a.pure, a.zipped_data,
